@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>我的個人網頁</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* 基本樣式 */
+        :root {
+            --primary: #34495e;
+            --secondary: #F9F2E0;
+            --accent: #e67e22;
+            --text: #1660AB;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Microsoft JhengHei', sans-serif;
+            line-height: 1.6;
+            color: var(--text);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* 導航欄樣式 */
+        .nav {
+            position: fixed;
+            width: 100%;
+            background: #fff;
+            padding: 1rem 0;
+            z-index: 100;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+        
+        .nav-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .nav-link {
+            color: var(--text);
+            text-decoration: none;
+        }
+        
+        /* 主要區塊樣式 */
+        .section {
+            padding: 5rem 0;
+        }
+        
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            background: var(--secondary);
+            padding-top: 60px;
+        }
+        
+        .hero-title {
+            font-size: 3rem;
+            margin: 1rem 0;
+        }
+        
+        /* 作品區樣式 */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+        
+        .card {
+            background: var(--secondary);
+            padding: 1rem;
+            border-radius: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .card img {
+            width: 100%;
+            border-radius: 4px;
+        }
+        
+        /* 按鈕樣式 */
+        .btn {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--accent);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        
+        /* 聯絡區樣式 */
+        .contact {
+            background: var(--primary);
+            color: white;
+            text-align: center;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .social-link {
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        /* 頁腳樣式 */
+        .footer {
+            text-align: center;
+            padding: 1rem 0;
+            background: var(--secondary);
+        }
+
+        /* 自我介紹區塊樣式 */
+        .intro-section {
+            padding: 4rem 0;
+            background: white;
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            align-items: center;
+        }
+
+        .intro-text {
+            padding: 2rem;
+        }
+
+        .intro-image {
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .intro-image img {
+            width: 100%;
+            height: auto;
+        }
+
+        /* 成就區塊樣式 */
+        .achievements {
+            background: white;
+            padding: 4rem 0;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1.5rem;
+            background: var(--secondary);
+            border-radius: 8px;
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+        }
+
+        .achievement-showcase {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--secondary);
+            padding: 2rem;
+            border-radius: 10px;
+            text-align: center;
+        }
+
+        .achievement-icon {
+            font-size: 3rem;
+            color: var(--accent);
+            margin-bottom: 1.5rem;
+        }
+
+        .achievement-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .achievement-description {
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <nav class="nav">
+        <div class="container nav-content">
+            <a href="#" class="nav-link" style="display: flex; align-items: center;">
+                <img src="https://cdn-icons-png.flaticon.com/512/10061/10061724.png" alt="Algorithm Logo" style="height: 30px; margin-right: 10px;">
+                <span>高崇銘</span>
+            </a>
+            <div class="nav-links">
+                <a href="#intro" class="nav-link">自我介紹</a>
+                <a href="#works" class="nav-link">作品</a>
+                <a href="#about" class="nav-link">關於</a>
+                <a href="#contact" class="nav-link">聯絡</a>
+            </div>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="hero-title">創造有意義的<br>美食生活</h1>
+            <p>專注於美食的體驗</p>
+            <a href="#contact" class="btn">聯絡我</a>
+        </div>
+    </section>
+
+    <section id="intro" class="intro-section">
+        <div class="container">
+            <div class="intro-content">
+                <div class="intro-text">
+                    <h2>自我介紹</h2>
+                    <p>我叫高崇銘，就讀國立臺東大學綠能與資訊科技學系。我是一個喜歡小動物的人，平常就是跟女友出去玩，喜歡吃美食逛街，學校家鄉兩點一線，平常日就宅在宿舍假日就宅在屏東的家裡。</p>
+                    <p>我的興趣：</p>
+                    <ul style="margin-left: 20px; margin-top: 10px;">
+                        <li>到處探店吃美食</li>
+                        <li>宅在某一個空間耍廢</li>
+                        <li>睡覺</li>
+                        <li>滑手機</li>
+                        <li>做研究</li>
+                    </ul>
+                    <a href="#contact" class="btn" style="margin-top: 20px;">了解更多</a>
+                </div>
+                <div class="intro-image">
+                    <img src="/Users/adward/Desktop/html/76360.jpg" alt="個人照片">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="achievements">
+        <div class="container">
+            <div class="achievement-showcase">
+                <div class="achievement-icon">
+                    <i class="fas fa-trophy"></i>
+                </div>
+                <h3 class="achievement-title">專業成就</h3>
+                <p class="achievement-description">
+                    1.學習過網頁程式設計課程
+                </p>
+                <p>
+                    2.學習過能源管理課程
+                </p>
+                <p>
+                    3.食客
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <section id="works" class="section">
+        <div class="container">
+            <h3 class="achievement-title">美食生活</h3>
+            <div class="grid">
+                <!-- 原有的兩個美食卡片 -->
+                <div class="card">
+                    <img src="/Users/adward/Desktop/html/76266.jpg" alt="作品1" width="200" height="400">
+                    <h3>饌日式燒肉放題</h3>
+                    <h4>屏東市廣東南路262-5號</h4>
+                    <p>一間在屏東燒肉店，肉質新鮮也很嫩，也有壽司火鍋等等，人均700元上下，品項非常多可以來嘗試看看。</p>
+                </div>
+                <div class="card">
+                    <img src="/Users/adward/Desktop/html/76355.jpg" alt="作品2" width="200" height="400">
+                    <h3>肉次方</h3>
+                    <h4>台南市府前路二段500號</h4>
+                    <p>肉質比饌日式燒肉放題好一點，價錢也較為親民，總體評分比饌日式燒肉放題高，會讓人多次回訪的店。</p>
+                </div>
+                
+                <!-- 新增的四個美食卡片模板 -->
+                <div class="card">
+                    <img src="/Users/adward/Desktop/html/76460.jpg" alt="作品3" width="200" height="400">
+                    <h3>東春家</h3>
+                    <h4>屏東市福建路53號</h4>
+                    <p>這家時才特別新鮮，海鮮完全沒有怪味道，但是都是現點現做，所以要等很久，像居酒屋的一家店。</p>
+                </div>
+
+                <div class="card">
+                    <img src="/Users/adward/Desktop/html/76398.jpg" alt="作品4" width="200" height="400">
+                    <h3>義湯麵</h3>
+                    <h4>屏東市中正路355-1號</h4>
+                    <p>從國中吃到大學的店，沒有說到非常好吃，來這裡是為了吃回憶、吃習慣、吃舒服，老闆開到幾歲我就會吃到幾歲。</p>
+                </div>
+
+                <div class="card">
+                    <img src="/Users/adward/Desktop/html/76330.jpg" alt="作品5" width="200" height="400">
+                    <h3>清風巷六號</h3>
+                    <h4>屏東市廣東路258巷23號</h4>
+                    <p>價格有點高攀不起，不過值得嚐鮮，奶油吃的出來很純，非常香甜水果也給的很多。</p>
+                </div>
+
+                <div class="card">
+                    <img src="/Users/adward/Desktop/html/76303.jpg" alt="作品6" width="200" height="400">
+                    <h3>瑞豐夜市甘丹炒酸奶</h3>
+                    <h4>瑞豐夜市</h4>
+                    <p>簡單好吃，口味非常多價格也很便宜，都是銅板價老闆也會多送東西，好吃無負擔。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="section" style="background: var(--secondary);">
+        <div class="container">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; align-items: center;">
+                <!-- 左側文字內容 -->
+                <div>
+                    <h2>關於美食</h2>
+                    <p>喜歡探索不同的美食，從街邊小吃到精緻料理。主要分享南部各地的美食，歡迎跟我一起發掘美味！</p>
+                    <a href="#contact" class="btn">了解更多</a>
+                </div>
+                
+                <!-- 右側照片拼貼 -->
+                <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+                    <img src="/Users/adward/Desktop/html/76330.jpg" alt="清風巷六號" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                    <img src="/Users/adward/Desktop/html/76303.jpg" alt="甘丹炒酸奶" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                    <img src="/Users/adward/Desktop/html/76460.jpg" alt="東春家" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                    <img src="/Users/adward/Desktop/html/76398.jpg" alt="義湯麵" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+
+    <section id="contact" class="section contact">
+        <div class="container">
+            <h2>跟我一起吃美食</h2>
+            <div class="social-links">
+                <!-- ↓↓↓ 在這裡替換成您的 Instagram 連結 ↓↓↓ -->
+                <a href="https://www.instagram.com/yayayayayayaya_0218?igsh=cTZ4amtlajJjZHFx" target="_blank" class="social-link">
+                    <i class="fab fa-instagram"></i>
+                </a>
+                
+                <!-- ↓↓↓ 在這裡替換成您的 Facebook 連結 ↓↓↓ -->
+                <a href="https://www.facebook.com/andyleeopj?locale=zh_TW" target="_blank" class="social-link">
+                    <i class="fab fa-facebook"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <p>&copy; 2025 All rights reserved.</p>
+    </footer>
+</body>
+</html>
